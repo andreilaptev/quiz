@@ -13,13 +13,15 @@ export class AppComponent {
  start: boolean = false;
  currentQuestion = questions[0]
  questionsCounter: number = 0;
- numberOfQuestons: number;
+ numberOfQuestons: number = questions['length'];
  score: number = 0;
  end: boolean = false
  message: string;
+ 
 
   ngOnInit(){
-    this.numberOfQuestons = questions['length']
+    // For production mode
+    this.numberOfQuestons = questions.default.length;
   }
 
   onStart(){
